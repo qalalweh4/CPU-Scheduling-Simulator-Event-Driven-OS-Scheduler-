@@ -31,16 +31,16 @@ Requires: `gcc`, `make`, C11 standard (`-std=c11`).
 ## Usage
 
 ```bash
-./scheduler --algo=<FCFS|SJF|RR|PRIORITY> --input=<workload_file> [--quantum=<n>]
+./scheduler --algo=<FCFS|SJF|RR|PRIORITY> --input=./workloads/<workload_file> [--quantum=<n>]
 ```
 
 ### Examples
 
 ```bash
-./scheduler --algo=FCFS     --input=workload1.txt
-./scheduler --algo=SJF      --input=workload1.txt
-./scheduler --algo=RR       --quantum=4 --input=workload2.txt
-./scheduler --algo=PRIORITY --input=workload3.txt
+./scheduler --algo=FCFS     --input=./workloads/workload1.txt
+./scheduler --algo=SJF      --input=./workloads/workload1.txt
+./scheduler --algo=RR       --quantum=4 --input=./workloads/workload2.txt
+./scheduler --algo=PRIORITY --input=./workloads/workload3.txt
 ```
 
 Or use the Makefile shortcuts:
