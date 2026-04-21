@@ -97,8 +97,10 @@ Process 3 has a single CPU burst of 8 with no I/O.
 ### Gantt Chart
 ```
 === Gantt Chart ===
-| P1--| P2-| P1--| P3------|
-0    6    9   13          21
++------+------+------+------+------+
+|  P1  |  P2  |  P5  |  P4  |  P3  |
++------+------+------+------+------+
+0      6     10     13     18     26
 ```
 
 ### Summary Table
