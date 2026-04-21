@@ -202,16 +202,6 @@ a smaller priority number. Ties broken by arrival time, then PID.
 
 ##Project File Strucure 
 ```
-main.c
-  └── parse_workload()       [parser.c]
-  └── get_xxx_scheduler()    [algo_fcfs_sjf.c / algo_rr_priority.c]
-  └── run_simulation()       [engine.c]
-        └── eq_insert/pop()  [event_queue.c]
-        └── sched->enqueue() / pick_next() / should_preempt() / uses_quantum()
-  └── print_gantt()          [output.c]
-  └── print_summary()        [output.c]
-  └── print_per_process()    [output.c]
-
 Project/
    └──scheduler.h          -- shared types, constants, vtable, prototypes
    └──main.c               -- CLI entry point and orchestration
