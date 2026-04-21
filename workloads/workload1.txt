@@ -1,0 +1,8 @@
+# workload1.txt — Simple, no I/O
+# Format: PID  ARRIVAL  PRIORITY  CPU [IO CPU IO CPU ...]
+# Good for testing FCFS and SJF first
+1   0   3   6
+2   2   1   4
+3   4   2   8
+4   6   2   5
+5   8   1   3
