@@ -105,14 +105,19 @@ Process 3 has a single CPU burst of 8 with no I/O.
 
 ### Summary Table
 ```
-=== Summary: Round Robin (quantum=4) ===
-CPU Utilization : 87.50%
-Throughput      : 0.1563 proc/unit
-Context Switches: 12
-Total Time      : 32
-Avg Waiting     : 4.67
-Avg Turnaround  : 10.33
-Avg Response    : 2.00
++----------------------------------------------+
+|  Summary: SJF                                |
++----------------------------------------------+
+|  CPU Utilization   : 100.00 %                |
+|  Throughput        :   0.1923 proc/time-unit |
+|  Total Time        :   26 time units         |
+|  Context Switches  :    5                    |
+|  Context Sw. Cost  :    5 time units         |
++----------------------------------------------+
+|  Avg Waiting Time  :    5.40 time units      |
+|  Avg Turnaround    :   10.60 time units      |
+|  Avg Response Time :    5.40 time units      |
++----------------------------------------------+
 ```
 
 ### Per-Process Stats
@@ -193,3 +198,33 @@ a smaller priority number. Ties broken by arrival time, then PID.
 | Response time | `first_cpu_time − arrival_time` |
 | CPU utilization | `(total_time − idle_time) / total_time` |
 | Throughput | `n / total_time` |
+
+
+##Project File Strucure 
+```
+main.c
+  └── parse_workload()       [parser.c]
+  └── get_xxx_scheduler()    [algo_fcfs_sjf.c / algo_rr_priority.c]
+  └── run_simulation()       [engine.c]
+        └── eq_insert/pop()  [event_queue.c]
+        └── sched->enqueue() / pick_next() / should_preempt() / uses_quantum()
+  └── print_gantt()          [output.c]
+  └── print_summary()        [output.c]
+  └── print_per_process()    [output.c]
+
+Project/
+   └──scheduler.h          -- shared types, constants, vtable, prototypes
+   └──main.c               -- CLI entry point and orchestration
+   └──engine.c             -- event-driven simulation engine
+   └──event_queue.c        -- sorted linked-list priority queue
+   └──parser.c             -- workload file parser
+   └──algo_fcfs_sjf.c      -- FCFS and SJF scheduler implementations
+   └──algo_rr_priority.c   -- Round Robin and Priority scheduler implementations
+   └──output.c             -- Gantt chart, summary table, per-process stats
+   └──workloads/
+     └──workload1.txt        -- CPU-only workload (5 processes)
+     └──workload2.txt        -- I/O burst workload (5 processes)
+     └──workload3.txt        -- Priority starvation workload (5 processes)
+   └──Makefile             -- build targets: make, make clean, make run_*
+   └──README.md            -- usage, format, architecture documentation
+```
