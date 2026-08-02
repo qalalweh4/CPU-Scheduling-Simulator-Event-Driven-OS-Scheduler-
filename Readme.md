@@ -171,18 +171,18 @@ Each algorithm implements five function pointers:
 
 ## Algorithms
 
-### FCFS (Ahmed)
+### FCFS (Abdullah)
 Pure FIFO. Processes run to completion in arrival order. No preemption.
 
-### SJF (Ahmed)
+### SJF (Abdullah)
 Non-preemptive. On each dispatch, picks the ready process with the shortest
 remaining CPU burst. Ties broken by arrival time, then PID.
 
-### Round Robin (Turki)
+### Round Robin (Abdullah)
 Time-sliced. Each process gets at most `quantum` time units before being
 re-enqueued at the tail. Preemption triggered by `EVT_PREEMPT` in the engine.
 
-### Priority (Turki)
+### Priority (Abdullah)
 Preemptive. Lower priority number = higher urgency. A newly arriving or
 I/O-returning process immediately preempts the running process if it has
 a smaller priority number. Ties broken by arrival time, then PID.
