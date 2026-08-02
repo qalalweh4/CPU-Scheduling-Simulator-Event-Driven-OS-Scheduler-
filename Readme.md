@@ -11,9 +11,9 @@ Gantt charts + per-process statistics.
 | Member | Role | Files |
 |--------|------|-------|
 | Abdullah | Core engine, CLI, parser, event queue, integration | `main.c`, `engine.c`, `parser.c`, `event_queue.c`, `scheduler.h` |
-| Ahmed | FCFS + SJF schedulers | `algo_fcfs_sjf.c` |
-| Turki | Round Robin + Priority schedulers | `algo_rr_priority.c` |
-| Hasan | Output: Gantt chart, summary table, per-process stats | `output.c` |
+| Abdullah | FCFS + SJF schedulers | `algo_fcfs_sjf.c` |
+| Abdullah | Round Robin + Priority schedulers | `algo_rr_priority.c` |
+| Abdullah | Output: Gantt chart, summary table, per-process stats | `output.c` |
 
 ---
 
